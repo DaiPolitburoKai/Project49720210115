@@ -247,7 +247,7 @@ void Hydrated()
 			break;
 		}
 	}
-	String line = client.readStringUntil('\n');
+	String line = client.read;
 
 	if (line=="")
 	{
@@ -278,7 +278,7 @@ void DeHydrated1()
 			break;
 		}
 	}
-	String line = client.readStringUntil('\n');
+	String line = client.read;
 
 	if (line=="")
 	{
@@ -309,7 +309,7 @@ void DeHydrated2()
 			break;
 		}
 	}
-	String line = client.readStringUntil('\n');
+	String line = client.read;
 
 	if (line=="")
 	{
@@ -340,7 +340,7 @@ void ReadError()
 			break;
 		}
 	}
-	String line = client.readStringUntil('\n');
+	String line = client.read;
 
 	if (line=="")
 	{
