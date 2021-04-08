@@ -130,7 +130,7 @@ void loop()
 		Serial.println("Data: " + blue);
 		Serial.println("Data: " + clear);
 		Serial.println("Data: " + ColorTemp);
-		Storedata(colorTemp, red, green, blue, clear);
+		Storedata(colorTemp, red, blue);
 		if(red < 820 && blue > 700 && clear < 800 && colorTemp <= 6000)
 		{
 			if(colorTemp > 3200 )
