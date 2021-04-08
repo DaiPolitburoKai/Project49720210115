@@ -52,7 +52,7 @@ void setup()
   pinMode(0, OUTPUT); //LED1 RGB Sensor
   pinMode(2, OUTPUT); //LED2 Wifi
   pinMode(14, OUTPUT); //LED3 IFTTT Host
-  pinMode(12 OUTPUT); //LED4 Processing
+  pinMode(12, OUTPUT); //LED4 Processing
   //TEST
   digitalWrite(0, HIGH);
   digitalWrite(2, HIGH);
