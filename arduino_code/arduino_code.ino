@@ -202,32 +202,32 @@ uint16_t collectDataBlue(void)
 	return b;
 }
 
-void Storedata(uint16_t colorTemp, uint16_t r, uint16_t b)
+void Storedata(uint16_t colorTemp, uint16_t r, uint16_t g)
 {
-	uint16_t colorTemp, r, b;
-	String url = "/trigger/Urinalysis/with/key/mj32bdgJ0-Z_EfDX6J61XM15bkwN_5c-5Lx0USVBRoL";
-	
-	String jsonObject = String("{\"value1\":\"") + String((uint16_t)colorTemp) + "\",\"value2\":\"" + String((uint16_t)r) + "\",\"value3\":\"" + String((uint16_t)b) + "\"}";
-	
-	Serial.println("request sent");
-	client.println(String("POST ") + url + " HTTP/1.1");
-	client.println(String("Host: ") + host); 
-	client.println("Connection: close\r\nContent-Type: application/json");
-	client.print("Content-Length: ");
-	client.println(jsonObject.length());
-	client.println();
-	client.println(jsonObject);
+  uint16_t colorTemp, r, g, b, c;
+  String url = "/trigger/Urinalysis/with/key/mj32bdgJ0-Z_EfDX6J61XM15bkwN_5c-5Lx0USVBRoL";
+  
+  String jsonObject = String("{\"value1\":\"") + String((uint16_t)colorTemp) + "\",\"value2\":\"" + String((uint16_t)r) + "\",\"value3\":\"" + String((uint16_t)g) + "\"}";
+  
+  Serial.println("request sent");
+  client.println(String("POST ") + url + " HTTP/1.1");
+  client.println(String("Host: ") + host); 
+  client.println("Connection: close\r\nContent-Type: application/json");
+  client.print("Content-Length: ");
+  client.println(jsonObject.length());
+  client.println();
+  client.println(jsonObject);
         
-	int timeout = 10 * 10; // 10 seconds             
-	while(!!!client.available() && (timeout-- > 0)){
-		delay(100);
-	}
-	if(!!!client.available()) {
-		Serial.println("No response...");
-	}
-	while(client.available()){
-		Serial.write(client.read());
-	}
+  int timeout = 10 * 10; // 10 seconds             
+  while(!!!client.available() && (timeout-- > 0)){
+    delay(100);
+  }
+  if(!!!client.available()) {
+    Serial.println("No response...");
+  }
+  while(client.available()){
+    Serial.write(client.read());
+  }
 }
 
 void Hydrated()
