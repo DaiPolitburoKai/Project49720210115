@@ -46,6 +46,8 @@ WiFiClient  espclient;
 
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X);
 
+const int API_TIMEOUT=10000;
+
 void setup() 
 {
   //LED Setup 
@@ -154,7 +156,7 @@ void loop()
 			Serial.println("Value Not Recognized as Urine");
 			ReadError();
 		}
-		delay(5000)
+		delay(5000);
 	}
 	/* if(stopping ==1) 
 	{
