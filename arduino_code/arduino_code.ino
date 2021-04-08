@@ -202,13 +202,12 @@ uint16_t collectDataBlue(void)
 	return b;
 }
 
-
-void Storedata(uint16_t colorTemp, r, g, b, c)
+void Storedata(uint16_t colorTemp, uint16_t r, uint16_t b)
 {
-	uint16_t colorTemp, r, g, b, c;
+	uint16_t colorTemp, r, b;
 	String url = "/trigger/Urinalysis/with/key/mj32bdgJ0-Z_EfDX6J61XM15bkwN_5c-5Lx0USVBRoL";
 	
-	String jsonObject = String("{\"value1\":\"") + String((uint16_t)colorTemp) + "\",\"value2\":\"" + String((uint16_t)r) + "\",\"value3\":\"" + String((uint16_t)g) + "\",\"value4\":\"" + String((uint16_t)b) + "\",\"value5\":\"" + String((uint16_t)c) + "\"}"
+	String jsonObject = String("{\"value1\":\"") + String((uint16_t)colorTemp) + "\",\"value2\":\"" + String((uint16_t)r) + "\",\"value3\":\"" + String((uint16_t)b) + "\"}";
 	
 	Serial.println("request sent");
 	client.println(String("POST ") + url + " HTTP/1.1");
