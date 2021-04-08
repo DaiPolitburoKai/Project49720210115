@@ -116,7 +116,7 @@ void loop()
 {
 	uint16_t red, blue, green, clear, colorTemp;
 	digitalWrite(12, HIGH);
-	while (digitalRead()==HIGH)
+	while (digitalRead(13)==HIGH)
 	{
 		digitalWrite(12, LOW);
 		Serial.println("Button Pressed, Reading Data");
