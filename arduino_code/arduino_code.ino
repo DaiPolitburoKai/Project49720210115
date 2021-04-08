@@ -211,6 +211,7 @@ void Storedata(uint16_t colorTemp, uint16_t r, uint16_t g)
   
   String jsonObject = String("{\"value1\":\"") + String((uint16_t)colorTemp) + "\",\"value2\":\"" + String((uint16_t)r) + "\",\"value3\":\"" + String((uint16_t)g) + "\"}";
   
+  BearSSL::WiFiClientSecure client;	
   Serial.println("request sent");
   client.println(String("POST ") + url + " HTTP/1.1");
   client.println(String("Host: ") + host); 
@@ -235,6 +236,8 @@ void Storedata(uint16_t colorTemp, uint16_t r, uint16_t g)
 void Hydrated()
 {
 	String url = "/trigger/Hydrated/with/key/mj32bdgJ0-Z_EfDX6J61XMNfzAsioruCbrurkiP8iKm";
+	
+	BearSSL::WiFiClientSecure client;
 
 	client.print(String("GET ") + url + " HTTP/1.1\r\n" + "Host: " + host + "\r\n" + "User-Agent: BuildFailureDetectorESP8266\r\n" + "Connection: close\r\n\r\n");
 	
@@ -266,6 +269,8 @@ void Hydrated()
 void DeHydrated1()
 {
 	String url = ;
+	
+	BearSSL::WiFiClientSecure client;
 
 	client.print(String("GET ") + url + " HTTP/1.1\r\n" + "Host: " + host + "\r\n" + "User-Agent: BuildFailureDetectorESP8266\r\n" + "Connection: close\r\n\r\n");
 	
@@ -297,6 +302,8 @@ void DeHydrated1()
 void DeHydrated2()
 {
 	String url = "/trigger/Dehydrated/with/key/mj32bdgJ0-Z_EfDX6J61XMNfzAsioruCbrurkiP8iKm";
+	
+	BearSSL::WiFiClientSecure client;
 
 	client.print(String("GET ") + url + " HTTP/1.1\r\n" + "Host: " + host + "\r\n" + "User-Agent: BuildFailureDetectorESP8266\r\n" + "Connection: close\r\n\r\n");
 	
@@ -328,6 +335,8 @@ void DeHydrated2()
 void ReadError()
 {
 	String url = "/trigger/Invalid/with/key/mj32bdgJ0-Z_EfDX6J61XMNfzAsioruCbrurkiP8iKm";
+	
+	BearSSL::WiFiClientSecure client;
 
 	client.print(String("GET ") + url + " HTTP/1.1\r\n" + "Host: " + host + "\r\n" + "User-Agent: BuildFailureDetectorESP8266\r\n" + "Connection: close\r\n\r\n");
 	
