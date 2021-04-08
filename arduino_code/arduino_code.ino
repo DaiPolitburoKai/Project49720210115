@@ -131,7 +131,7 @@ void loop()
 		Serial.println("Data: " + green);
 		Serial.println("Data: " + blue);
 		Serial.println("Data: " + clear);
-		Serial.println("Data: " + ColorTemp);
+		Serial.println("Data: " + colorTemp);
 		Storedata(colorTemp, red, green);
 		if(red < 820 && blue > 700 && clear < 800 && colorTemp <= 6000)
 		{
@@ -206,7 +206,7 @@ uint16_t collectDataBlue(void)
 
 void Storedata(uint16_t colorTemp, uint16_t r, uint16_t g)
 {
-  uint16_t colorTemp, r, g, b, c;
+  //uint16_t colorTemp, r, g;
   String url = "/trigger/Urinalysis/with/key/mj32bdgJ0-Z_EfDX6J61XM15bkwN_5c-5Lx0USVBRoL";
   
   String jsonObject = String("{\"value1\":\"") + String((uint16_t)colorTemp) + "\",\"value2\":\"" + String((uint16_t)r) + "\",\"value3\":\"" + String((uint16_t)g) + "\"}";
