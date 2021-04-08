@@ -251,7 +251,7 @@ void Hydrated()
 			break;
 		}
 	}
-	String line = client.read;
+	String line = client.readStringUntil('/r');
 
 	if (line=="")
 	{
@@ -268,7 +268,7 @@ void Hydrated()
 }
 void DeHydrated1()
 {
-	String url = ;
+	String url = "/trigger/Dehydrated/with/key/mj32bdgJ0-Z_EfDX6J61XMNfzAsioruCbrurkiP8iKm";
 	
 	BearSSL::WiFiClientSecure client;
 
@@ -284,7 +284,7 @@ void DeHydrated1()
 			break;
 		}
 	}
-	String line = client.read;
+	String line = client.readStringUntil('/r');
 
 	if (line=="")
 	{
@@ -317,7 +317,7 @@ void DeHydrated2()
 			break;
 		}
 	}
-	String line = client.read;
+	String line = client.readStringUntil('/r');
 
 	if (line=="")
 	{
@@ -350,7 +350,7 @@ void ReadError()
 			break;
 		}
 	}
-	String line = client.read;
+	String line = client.readStringUntil('/r');
 
 	if (line=="")
 	{
