@@ -206,33 +206,33 @@ uint16_t collectDataBlue(void)
 
 void Storedata(uint16_t colorTemp, uint16_t r, uint16_t g)
 {
-  while(!!!client.connect(host, 80) && (5-- > 0)) {
-	Serial.print(".");
-  }
-  String url = "/trigger/Urinalysis/with/key/mj32bdgJ0-Z_EfDX6J61XM15bkwN_5c-5Lx0USVBRoL";
+	while(!!!client.connect(host, 80) && (5-- > 0)) {
+		Serial.print(".");
+	}
+	String url = "/trigger/Urinalysis/with/key/mj32bdgJ0-Z_EfDX6J61XM15bkwN_5c-5Lx0USVBRoL";
   
-  String jsonObject = String("{\"value1\":\"") + String((uint16_t)colorTemp) + "\",\"value2\":\"" + String((uint16_t)r) + "\",\"value3\":\"" + String((uint16_t)g) + "\"}";
+	String jsonObject = String("{\"value1\":\"") + String((uint16_t)colorTemp) + "\",\"value2\":\"" + String((uint16_t)r) + "\",\"value3\":\"" + String((uint16_t)g) + "\"}";
   
-  BearSSL::WiFiClientSecure client;	
-  Serial.println("request sent");
-  client.println(String("POST ") + url + " HTTP/1.1");
-  client.println(String("Host: ") + host); 
-  client.println("Connection: close\r\nContent-Type: application/json");
-  client.print("Content-Length: ");
-  client.println(jsonObject.length());
-  client.println();
-  client.println(jsonObject);
+	BearSSL::WiFiClientSecure client;	
+	Serial.println("request sent");
+	client.println(String("POST ") + url + " HTTP/1.1");
+	client.println(String("Host: ") + host); 
+	client.println("Connection: close\r\nContent-Type: application/json");
+	client.print("Content-Length: ");
+	client.println(jsonObject.length());
+	client.println();
+	client.println(jsonObject);
         
-  int timeout = 10 * 10; // 10 seconds             
-  while(!!!client.available() && (timeout-- > 0)){
-    delay(100);
-  }
-  if(!!!client.available()) {
-    Serial.println("No response...");
-  }
-  while(client.available()){
-    Serial.write(client.read());
-  }
+	int timeout = 10 * 10; // 10 seconds             
+	while(!!!client.available() && (timeout-- > 0)){
+		delay(100);
+	}
+	if(!!!client.available()) {
+		Serial.println("No response...");
+	}
+	while(client.available()){
+		Serial.write(client.read());
+	}
 }
 
 void Hydrated()
