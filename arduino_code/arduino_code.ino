@@ -206,6 +206,7 @@ uint16_t collectDataBlue(void)
 
 void Storedata(uint16_t colorTemp, uint16_t r, uint16_t g)
 {
+	BearSSL::WiFiClientSecure client;
 	while(!!!client.connect(host, 80) && (5-- > 0)) {
 		Serial.print(".");
 	}
@@ -213,7 +214,7 @@ void Storedata(uint16_t colorTemp, uint16_t r, uint16_t g)
   
 	String jsonObject = String("{\"value1\":\"") + String((uint16_t)colorTemp) + "\",\"value2\":\"" + String((uint16_t)r) + "\",\"value3\":\"" + String((uint16_t)g) + "\"}";
   
-	BearSSL::WiFiClientSecure client;	
+		
 	Serial.println("request sent");
 	client.println(String("POST ") + url + " HTTP/1.1");
 	client.println(String("Host: ") + host); 
