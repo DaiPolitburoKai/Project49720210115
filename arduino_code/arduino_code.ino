@@ -127,11 +127,11 @@ void loop()
 		blue = collectDataBlue();
 		clear = collectDataClear();
 		colorTemp = collectDataColorTemp();
-		Serial.println("Data: " + red);
-		Serial.println("Data: " + green);
-		Serial.println("Data: " + blue);
-		Serial.println("Data: " + clear);
-		Serial.println("Data: " + colorTemp);
+		Serial.println("Data Red: " + String(red));
+		Serial.println("Data Green: " + String(green));
+		Serial.println("Data Blue: " + String(blue));
+		Serial.println("Data Clear: " + String(clear));
+		Serial.println("Data ColorTemp: " + String(colorTemp));
 		Storedata(colorTemp, red, green);
 		if(red < 820 && blue > 700 && clear < 800 && colorTemp <= 6000)
 		{
