@@ -116,7 +116,7 @@ void setup()
 
 void loop() 
 {
-	uint16_t red, blue, green, clear, colorTemp;
+	uint16_t red, blue, green, Clear, colorTemp;
 	digitalWrite(12, HIGH);
 	while (digitalRead(13)==HIGH)
 	{
@@ -125,15 +125,15 @@ void loop()
 		red = collectDataRed();
 		green = collectDataGreen();
 		blue = collectDataBlue();
-		clear = collectDataClear();
+		Clear = collectDataClear();
 		colorTemp = collectDataColorTemp();
 		Serial.println("Data Red: " + String(red));
 		Serial.println("Data Green: " + String(green));
 		Serial.println("Data Blue: " + String(blue));
-		Serial.println("Data Clear: " + String(clear));
+		Serial.println("Data Clear: " + String(Clear));
 		Serial.println("Data ColorTemp: " + String(colorTemp));
 		Storedata(colorTemp, red, green);
-		if(red < 820 && blue > 700 && clear < 800 && colorTemp <= 6000)
+		if(red < 820 && blue > 700 && Clear < 800 && colorTemp <= 6000)
 		{
 			if(colorTemp > 3200 )
 			{
@@ -206,9 +206,9 @@ uint16_t collectDataBlue(void)
 
 void Storedata(uint16_t colorTemp, uint16_t r, uint16_t g)
 {
-	int retries = 5;
+	int retries = 20;
 	BearSSL::WiFiClientSecure client;
-	while(!!!client.connect(host, 80) && (retries-- > 0)) {
+	while(!!!client.connect(host, httpsPort) && (retries-- > 0)) {
 		Serial.print(".");
 	}
 	String url = "/trigger/Urinalysis/with/key/mj32bdgJ0-Z_EfDX6J61XM15bkwN_5c-5Lx0USVBRoL";
