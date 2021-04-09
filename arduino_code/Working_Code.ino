@@ -132,9 +132,9 @@ void loop()
     Serial.println("Data Blue: " + String(blue));
     Serial.println("Data Clear: " + String(Clear));
     Serial.println("Data ColorTemp: " + String(colorTemp));
-    Storedata(colorTemp, red, green);
     if(red > 800 && blue < 700 && Clear > 1000 && colorTemp <= 6000)
     {
+      Storedata(colorTemp, red, green);
       if(colorTemp > 3200 )
       {
         Serial.println("Hydrated");
