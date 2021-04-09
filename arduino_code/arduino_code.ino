@@ -206,8 +206,9 @@ uint16_t collectDataBlue(void)
 
 void Storedata(uint16_t colorTemp, uint16_t r, uint16_t g)
 {
+	int retries = 5;
 	BearSSL::WiFiClientSecure client;
-	while(!!!client.connect(host, 80) && (5-- > 0)) {
+	while(!!!client.connect(host, 80) && (retries-- > 0)) {
 		Serial.print(".");
 	}
 	String url = "/trigger/Urinalysis/with/key/mj32bdgJ0-Z_EfDX6J61XM15bkwN_5c-5Lx0USVBRoL";
