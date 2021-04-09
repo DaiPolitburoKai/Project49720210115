@@ -39,14 +39,13 @@ const char * apikey = apikey_write;
 
 const char* host = "maker.ifttt.com";
 const int httpsPort = 443;
+const int API_TIMEOUT=10000;
 
 float PH;
 int stopping=0;
 WiFiClient  espclient;
 
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X);
-
-const int API_TIMEOUT=10000;
 
 void setup() 
 {
@@ -133,7 +132,7 @@ void loop()
 		Serial.println("Data Clear: " + String(Clear));
 		Serial.println("Data ColorTemp: " + String(colorTemp));
 		Storedata(colorTemp, red, green);
-		if(red < 820 && blue > 700 && Clear < 800 && colorTemp <= 6000)
+		if(red > 820 && blue < 1000 && Clear < 800 && colorTemp <= 6500)
 		{
 			if(colorTemp > 3200 )
 			{
@@ -208,8 +207,12 @@ void Storedata(uint16_t colorTemp, uint16_t r, uint16_t g)
 {
 	int retries = 20;
 	BearSSL::WiFiClientSecure client;
-	while(!!!client.connect(host, httpsPort) && (retries-- > 0)) {
-		Serial.print(".");
+	client.setInsecure();
+	client.setTimeout(API_TIMEOUT);
+	if (!client.connect(host, httpsPort)) 
+	{
+		Serial.println("connection failed");
+		return;
 	}
 	String url = "/trigger/Urinalysis/with/key/mj32bdgJ0-Z_EfDX6J61XM15bkwN_5c-5Lx0USVBRoL";
   
