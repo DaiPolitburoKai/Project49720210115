@@ -277,13 +277,13 @@ void Hydrated()
   {
     Serial.println("reply was:");
     Serial.println(line);
-    Serial.println("Success");
+    Serial.println("Not a Success");
   }
   else
   {
     Serial.println("reply was:");
     Serial.println(line);
-    Serial.println("No A Success");
+    Serial.println("Success");
   }
 }
 void DeHydrated1()
@@ -318,13 +318,13 @@ void DeHydrated1()
   {
     Serial.println("reply was:");
     Serial.println(line);
-    Serial.println("Success");
+    Serial.println("Not a Success");
   }
   else
   {
     Serial.println("reply was:");
     Serial.println(line);
-    Serial.println("No A Success");
+    Serial.println("Success");
   }
 }
 void DeHydrated2()
@@ -359,13 +359,13 @@ void DeHydrated2()
   {
     Serial.println("reply was:");
     Serial.println(line);
-    Serial.println("Success");
+    Serial.println("Not a Success");
   }
   else
   {
     Serial.println("reply was:");
     Serial.println(line);
-    Serial.println("No A Success");
+    Serial.println("Success");
   }
 }
 
@@ -402,13 +402,13 @@ void ReadError()
   {
     Serial.println("reply was:");
     Serial.println(line);
-    Serial.println("Success");
+    Serial.println("Not a Success");
   }
   else
   {
     Serial.println("reply was:");
     Serial.println(line);
-    Serial.println("No A Success");
+    Serial.println("Success");
   }
 }
 /*
