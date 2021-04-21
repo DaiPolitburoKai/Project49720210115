@@ -18,6 +18,11 @@
 //Date: 2019
 //Availability: https://github.com/nothans/thingspeak-esp-examples/blob/master/examples/RSSI_to_ThingSpeak.ino
 
+//Title: ESP32 Publish Sensor Readings to Google Sheets (ESP8266 Compatible)
+//Author: Rui Santos 
+//Date: 2019
+//Availability: https://randomnerdtutorials.com/esp32-esp8266-publish-sensor-readings-to-google-sheets/
+ 
 /* Pin 1 is PB
 Pin 3,4,5,6,7... etc are LEDs. */
 
